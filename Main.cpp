@@ -1,72 +1,71 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int MainMenu() {
-	int val1, val2, choice;
-	char continueChoice = 'y';
-	cout
-		<< "--- Please Select for Math Solution to use ---\n"
-		<< "1. Add\n"
-		<< "2. Subtract\n"
-		<< "3. Multipliction\n"
-		<< "4. Division\n"
-		<< "\n"
-		<< "Enter Choice: ";
+	int choice;
+	char decision = 'y';
+	cout << "(1) Add \n(2) Subtract \n(3) Multiply \n(4) Divide \n";
 	cin >> choice;
-	return choice;
 	system("cls");
+	return choice;
 }
 
-int main()
-{
-	int val1, val2, choice;
-	char continueChoice = 'y';
+int add(int x, int y) {
+	int sum = x + y;
+	return sum;
+}
 
-	do
-	{
-		do
-		{
+int subtract(int x, int y) {
+	int diff = x - y;
+	return diff;
+}
 
-			switch (MainMenu())
-			{
+int multiply(int x, int y) {
+	int prod = x * y;
+	return prod;
+}
+
+int divide(int x, int y) {
+	int quotient = x / y;
+	return quotient;
+}
+
+int main() {
+	int num1, num2, choice, result;
+	char decision = 'y';
+	do {
+		system("cls");
+		cout << "Enter first value: ";
+		cin >> num1;
+		cout << "Enter second value: ";
+		cin >> num2;
+		system("cls");
+		do {
+			switch (MainMenu()) {
 			case 1:
-				cout << "Please input value 1:";
-				cin >> val1;
-				cout << "Please input value 2:";
-				cin >> val2;
-				cout << val1 << " + " << val2 << " = " << val1 + val2 << "\n";
+				cout << "The sum is: " << add(num1, num2);
 				break;
 			case 2:
-				cout << "Please input value 1:";
-				cin >> val1;
-				cout << "Please input value 2:";
-				cin >> val2;
-				cout << val1 << " - " << val2 << " = " << val1 - val2 << "\n";
+				cout << "The difference is: " << subtract(num1, num2);
 				break;
+
 			case 3:
-				cout << "Please input value 1:";
-				cin >> val1;
-				cout << "Please input value 2:";
-				cin >> val2;
-				cout << val1 << " * " << val2 << " = " << val1 * val2 << "\n";
+				cout << "The product is: " << multiply(num1, num2);
 				break;
+
 			case 4:
-				cout << "Please input value 1:";
-				cin >> val1;
-				cout << "Please input value 2:";
-				cin >> val2;
-				cout << val1 << " / " << val2 << " = " << val1 / val2 << "\n";
+				cout << "The quotient is: " << divide(num1, num2);
 				break;
+
 			default:
-				cout << "User Input Incorrect\n\n";
-				break;
+				cout << "Invalid Choice!!\n";
 			}
-		} while (choice < 0 || choice > 5);
+		} while (choice < 0 || choice > 4);
 
-		cout << "Do you want to Contninue [y/n]:";
-		cin >> continueChoice;
-
-		system("cls");
-
-	} while (continueChoice == 'y');
+		cout << "\n\nWould you like to try another operation?\n(Y) Yes\n(N) No\n";
+		cin >> decision;
+	} while (decision == 'y');
+	system("cls");
+	cout << "Thank you!";
+	return 0;
 }
